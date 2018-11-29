@@ -8,4 +8,4 @@ sudo apt-get install conky
 ```
 Download the .conkyrc in this folder and put it inside your home folder replacing the default one.
 
-You may need additional scripts from my [TSC repository](http://https://github.com/Merutochan/TSC) to make the whole thing work.
+You may need additional scripts from my [TSC repository](https://github.com/Merutochan/TSC) to make the whole thing work.
