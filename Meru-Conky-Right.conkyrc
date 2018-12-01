@@ -1,0 +1,143 @@
+# Conky configuration
+
+# Set to yes if you want Conky to be forked in the background
+background yes
+
+# Font size?
+font monospace:size=9
+
+# Use Xft?
+use_xft yes
+
+# Force UTF8? requires XFT ###
+override_utf8_locale yes
+
+# Text alpha when using Xft
+xftalpha 0.9
+
+# Update interval in seconds
+update_interval 5.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+#alignment none
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+
+# If own_window is yes, you may use type normal, desktop or override
+own_window_type normal
+
+# Use pseudo transparency with own_window?
+own_window_transparent no
+# If own_window_transparent is set to no, you can set the background
+#colour here
+#own_window_colour black
+own_window_argb_visual yes
+own_window_argb_value 0
+
+# change GiB to G and MiB to M
+short_units yes
+
+# If own_window is yes, these w# Text alignment, other possible values
+# are commented
+
+# If own_window is yes, these window manager hints may be used
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 200 5
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Draw borders around graphs
+draw_graph_borders yes
+
+# Default colors and also border colors
+default_color white
+default_shade_color black
+default_outline_color black
+
+#default_color 656667 # Waldorf original colour
+#default_color 7a7a7a # Flame  & Bunsen Grey
+#default_color 929292 # Labs Grey
+default_color C0C0C0 # Silver
+color0 B0E0E6 # PowderBlue
+color1 778899 # LightSlateGray
+color2 D8BFD8 # Thistle
+color3 9ACD32 # YellowGreen
+color4 FFA07A # LightSalmon
+color5 FFDEAD # NavajoWhite
+color6 00BFFF # DeepSkyBlue
+color7 5F9EA0 # CadetBlue
+color8 BDB76B # DarkKhaki
+color9 CD5C5C # IndianRed
+#######################  End Colour Settings  ###
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 12
+gap_y 35
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 3
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 3
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale no
+
+TEXT
+
+
+${color white}USER:$alignr${USER}
+Uptime: $alignr$uptime
+
+${color blue}Battery:$color $battery $battery_time
+$color4
+$alignc CPU usage
+${cpugraph 40}
+CPU: $color${alignr}$freq MHz
+${color4}Temp:$color $alignr$acpitemp °C
+$color
+${color3}RAM ${alignr} $mem / $memmax ($memperc%)
+${membar 20}
+$color6
+Top CPU usage $alignr CPU%
+${top name 1}$alignr${top cpu 1}
+Top RAM usage $alignr RAM%
+${top_mem name 1}$alignr${top_mem mem 1}
+$color
+${color0}Home Partition ${alignr}${fs_used /home} / ${fs_size /home}
+$color${membar 0}
+${if_existing /sys/class/net/wlan0/operstate up}${color3}(WiFi):$alignr${addr wlan0}
+${wireless_essid wlan0} ${alignr} 
+Down: ${downspeed wlan0} ${alignr}Up: ${upspeed wlan0}
+${downspeedgraph wlan0 20,90} ${alignr}${upspeedgraph wlan0 20,90}
+Total: ${totaldown wlan0} ${alignr}Total: ${totalup wlan0} $color
